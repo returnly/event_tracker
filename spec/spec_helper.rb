@@ -1,4 +1,5 @@
 require "bundler/setup"
+require 'active_job'
 require "event_tracker"
 
 RSpec.configure do |config|
@@ -7,5 +8,9 @@ RSpec.configure do |config|
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
+  end
+
+  config.before(:all) do
+    ActiveJob::Base.queue_adapter = :test
   end
 end
