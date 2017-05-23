@@ -1,13 +1,13 @@
 module EventTracker
   class Tracker
-    def initialize(distinct_id, context)
-      @distinct_id = distinct_id
+    def initialize(doer_id, context)
+      @doer_id = doer_id
       @context = context
     end
 
     # TODO: refactor to support multiple event consumers; and / or just send to Kinesis
     def track(event_name, event_label, properties = {})
-      EventTracker::Jobs::MixpanelEventTrackerJob.perform_later(@distinct_id, event_name, event_label, context_with_(properties))
+      EventTracker::Jobs::MixpanelEventTrackerJob.perform_later(@doer_id, event_name, event_label, context_with_(properties))
     end
 
     private
