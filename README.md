@@ -22,7 +22,22 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Add `event_tracker.rb` to your `config/initialiers` folder with a code similar to:
+```ruby
+EventTracker.configure do |config|
+  config.mixpanel_project_token = 'yourTokenHere'
+end
+```
+
+After that, you can instantiate a tracker with the following line:
+```ruby
+tracker = EventTracker::Tracker.new(doer_id, properties)
+```
+where `properties` is a hash, and then you can use it with:
+```ruby
+tracker.track('return.refunded.merchant', 'Merchant Refunded Return', extra_properties)
+```
+where `extra_properties` is a hash with extra information to be merged with the original `properties`.
 
 ## Development
 
