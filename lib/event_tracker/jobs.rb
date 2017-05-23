@@ -1,0 +1,1 @@
+require 'event_tracker/jobs/mixpanel_event_tracker_job'
