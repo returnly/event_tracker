@@ -5,7 +5,7 @@ module EventTracker::Trackers
     end
 
     def track(event_name, event_label, properties)
-      tracker.track(@doer_id, event_name, properties.merge({ label: event_label }))
+      tracker.track(@doer_id, event_label, properties.merge({ namespaced: event_name }))
     end
 
     private
