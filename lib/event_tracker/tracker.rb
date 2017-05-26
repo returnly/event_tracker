@@ -14,6 +14,7 @@ module EventTracker
 
     def context_with_(properties)
       @context.merge(properties)
+              .merge({client_event_unix_timestamp: Time.now.to_i})
     end
   end
 end
