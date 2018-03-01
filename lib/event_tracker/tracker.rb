@@ -5,7 +5,8 @@ module EventTracker
       @context = context
       @trackers = []
 
-      register_tracker EventTracker::Trackers::Development.new(@doer_id) if development
+      register_tracker EventTracker::Trackers::Development.new(@doer_id) if development?
+      register_tracker EventTracker::Trackers::Mixpanel.new(@doer_id) if mixpanel?
     end
 
     def register_tracker(tracker)
@@ -20,12 +21,16 @@ module EventTracker
 
     def context_with_(properties)
       @context.merge(properties)
-              .merge({client_event_unix_timestamp: Time.now.to_i})
+              .merge(client_event_unix_timestamp: Time.now.to_i)
     end
 
     # TODO: remove short circuit
-    def development
-      true || Rails.env.development?
+    def development?
+      Rails.env.development?
+    end
+
+    def mixpanel?
+      EventTracker.configuration.mixpanel_project_token.present?
     end
   end
 end
