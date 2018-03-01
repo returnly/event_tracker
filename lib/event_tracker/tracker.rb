@@ -24,7 +24,6 @@ module EventTracker
               .merge(client_event_unix_timestamp: Time.now.to_i)
     end
 
-    # TODO: remove short circuit
     def development?
       Rails.env.development?
     end
