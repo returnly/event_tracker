@@ -6,7 +6,7 @@ module EventTracker
       end
 
       def track(event_name, event_label, properties)
-        raise 'Implement in adapter'
+        raise NotImplementedError, 'Implement in adapter'
       end
     end
   end

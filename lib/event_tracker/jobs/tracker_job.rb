@@ -5,8 +5,8 @@ module EventTracker
     class TrackerJob < ::ActiveJob::Base
       queue_as :default
 
-      def perform(doer_id, event_name, event_label, properties)
-        raise 'Implement in adapter'
+      def perform(_doer_id, _event_name, _event_label, _properties)
+        raise NotImplementedError, 'Implement in adapter'
       end
     end
   end

@@ -34,7 +34,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'activerecord'
   spec.add_dependency 'activejob'
-  spec.add_dependency 'awesome_print'
   spec.add_dependency 'mixpanel-ruby', '~> 2.2', '>= 2.2.0'
-  spec.add_dependency 'require_all'
 end

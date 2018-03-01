@@ -1,13 +1,13 @@
-require 'awesome_print'
+require_relative 'tracker_job'
 
 module EventTracker
   module Jobs
-    class DevelopmentJob < TrackerJob
+    class DevelopmentJob < EventTracker::Jobs::TrackerJob
       def perform(doer_id, event_name, event_label, properties)
         puts '*' * 30
-        ap "doer: #{doer_id}"
-        ap "#{event_name} | #{event_label}"
-        ap properties
+        pp "doer: #{doer_id}"
+        pp "#{event_name} | #{event_label}"
+        pp properties
         puts '*' * 30
       end
     end

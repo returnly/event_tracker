@@ -1,5 +1,4 @@
-require 'require_all'
-require_rel './event_tracker/**/*.rb'
+Dir[File.join('./lib', '**', '*.rb')].each { |lib| require lib }
 
 module EventTracker
   class << self
