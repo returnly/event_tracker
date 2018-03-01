@@ -1,5 +1,5 @@
 require 'require_all'
-require_all './lib'
+require_rel './event_tracker/**/*.rb'
 
 module EventTracker
   class << self
