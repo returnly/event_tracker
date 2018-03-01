@@ -19,13 +19,13 @@ RSpec.describe EventTracker::Tracker do
   subject { described_class.new(doer_id, event_context) }
 
   it 'calls perform_later with the right arguments' do
-    allow(EventTracker::Jobs::MixpanelEventTrackerJob).to receive(:perform_later).with(1, 'test event name', 'test event label', { prop1: true, prop2: 'test' })
+    allow(EventTracker::Jobs::MixpanelJob).to receive(:perform_later).with(1, 'test event name', 'test event label', { prop1: true, prop2: 'test' })
     subject.track(event_name, event_label)
   end
 
   context 'with extra properties' do
     it 'adds the extra properties' do
-      allow(EventTracker::Jobs::MixpanelEventTrackerJob).to receive(:perform_later).with(1, 'test event name', 'test event label', { prop1: true, prop2: 'test', prop3: 'another property' })
+      allow(EventTracker::Jobs::MixpanelJob).to receive(:perform_later).with(1, 'test event name', 'test event label', { prop1: true, prop2: 'test', prop3: 'another property' })
       subject.track(event_name, event_label, event_properties)
     end
   end

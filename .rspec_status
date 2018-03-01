@@ -1,0 +1,7 @@
+example_id                                  | status | run_time        |
+------------------------------------------- | ------ | --------------- |
+./spec/event_tracker/tracker_spec.rb[1:1]   | passed | 0.01436 seconds |
+./spec/event_tracker/tracker_spec.rb[1:2:1] | passed | 0.00046 seconds |
+./spec/event_tracker_spec.rb[1:1]           | passed | 0.00098 seconds |
+./spec/event_tracker_spec.rb[1:2:1:1]       | passed | 0.00118 seconds |
+./spec/event_tracker_spec.rb[1:2:1:2:1]     | passed | 0.00014 seconds |

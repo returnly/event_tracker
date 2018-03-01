@@ -1,3 +1,6 @@
+require 'require_all'
+require_all 'lib'
+
 module EventTracker
   class << self
     attr_writer :configuration
@@ -15,9 +18,3 @@ module EventTracker
     yield(configuration)
   end
 end
-
-require "event_tracker/version"
-require "event_tracker/tracker"
-require "event_tracker/jobs"
-require "event_tracker/trackers"
-require "event_tracker/configuration"

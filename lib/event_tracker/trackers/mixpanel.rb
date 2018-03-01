@@ -1,17 +1,9 @@
-module EventTracker::Trackers
-  class Mixpanel
-    def initialize(doer_id)
-      @doer_id = doer_id
-    end
-
-    def track(event_name, event_label, properties)
-      tracker.track(@doer_id, event_label, properties.merge({ namespaced: event_name }))
-    end
-
-    private
-
-    def tracker
-      @tracker ||= ::Mixpanel::Tracker.new(EventTracker.configuration.mixpanel_project_token)
+module EventTracker
+  module Trackers
+    class Mixpanel < Base
+      def track(event_name, event_label, properties)
+        EventTracker::Jobs::MixpanelJob.perform_later(@doer_id, event_name, event_label, properties)
+      end
     end
   end
 end
