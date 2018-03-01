@@ -10,7 +10,10 @@ module EventTracker
     end
 
     def register_tracker(tracker)
+      return false unless tracker.is_a? EventTracker::Trackers::Base
+
       @trackers << tracker
+      true
     end
 
     def track(event_name, event_label, properties = {})
