@@ -30,7 +30,7 @@ where `event_context` is a hash with extra information to be merged with the ori
 By default, it will use the `Development` tracker, which simply prints events to the console.
 
 ### Mixpanel Configuration
-Add `event_tracker.rb` to your `config/initialiers` folder with a code similar to:
+Add `event_tracker.rb` to your `config/initialiers` directory:
 ```ruby
 EventTracker.configure do |config|
   config.mixpanel_project_token = 'yourTokenHere'
