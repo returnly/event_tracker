@@ -1,25 +1,21 @@
 # EventTracker
 
-For consistent behavioral and event tracking across Rails applicaitons.
+For consistent behavioral and event tracking across Rails applications.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'event_tracker'
+gem 'event_tracker', git: 'https://www.github.com/returnly/event_tracker'
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install event_tracker
-
 ## Usage
-
+### Mixpanel Configuration
 Add `event_tracker.rb` to your `config/initialiers` folder with a code similar to:
 ```ruby
 EventTracker.configure do |config|
@@ -92,5 +88,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/event_tracker.
+Bug reports and pull requests are welcome on GitHub at https://github.com/returnly/event_tracker :)
 
