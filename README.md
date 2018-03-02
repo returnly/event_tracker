@@ -21,11 +21,11 @@ Instantiate a tracker:
 ```ruby
 tracker = EventTracker::Tracker.new(doer_id, properties)
 ```
-where `properties` is a hash with common event properties, and then you can use it with:
+where `properties` is a hash with common event properties, e.g. session information. Then, call `tracker.track(event_name, event_label, properties)`:
 ```ruby
 tracker.track('return.refunded.merchant', 'Merchant Refunded Return', event_context)
 ```
-where `event_context` is a hash with extra information to be merged with the original `properties`.
+where `event_context` is a hash with extra information to be merged with the original `properties`, e.g. a tag that identifies which button triggered the action.
 
 By default, it will use the `Development` tracker, which simply prints events to the console.
 
