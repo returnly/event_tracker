@@ -37,6 +37,41 @@ tracker.track('return.refunded.merchant', 'Merchant Refunded Return', extra_prop
 ```
 where `extra_properties` is a hash with extra information to be merged with the original `properties`.
 
+### Adding a custom tracker
+Create a `Tracker` and corresponding `Job` in your project like so:
+
+_`my_tracker.rb`_
+```ruby
+module EventTracker
+  module Trackers
+    class MyTracker < EventTracker::Trackers::Base
+      def track(event_name, event_label, properties)
+        EventTracker::Jobs::MyJob.perform_later(@doer_id, event_name, event_label, properties)
+      end
+    end
+  end
+end
+
+```
+
+_`my_job.rb`_
+```ruby
+module EventTracker
+  module Jobs
+    class MyJob < EventTracker::Jobs::TrackerJob
+      def perform(doer_id, event_name, event_label, properties)
+        track(doer_id, event_name, event_label, properties)
+      end
+      
+      private
+      
+      def track(*args)
+        # Connect to your custom event-tracking provider here :)
+      end
+    end
+  end
+end
+```
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
