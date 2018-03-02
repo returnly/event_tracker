@@ -1,6 +1,6 @@
 # EventTracker
 
-For consistent behavioral and event tracking across Rails applications.
+For consistent behavioral and event tracking across Rails applications. Supports Mixpanel out of the box, and allows for implementing custom tracker plugins for additional providers.
 
 ## Installation
 
@@ -15,6 +15,20 @@ And then execute:
     $ bundle
 
 ## Usage
+
+### Setup
+Instantiate a tracker:
+```ruby
+tracker = EventTracker::Tracker.new(doer_id, properties)
+```
+where `properties` is a hash with common event properties, and then you can use it with:
+```ruby
+tracker.track('return.refunded.merchant', 'Merchant Refunded Return', event_context)
+```
+where `event_context` is a hash with extra information to be merged with the original `properties`.
+
+By default, it will use the `Development` tracker, which simply prints events to the console.
+
 ### Mixpanel Configuration
 Add `event_tracker.rb` to your `config/initialiers` folder with a code similar to:
 ```ruby
@@ -23,15 +37,7 @@ EventTracker.configure do |config|
 end
 ```
 
-After that, you can instantiate a tracker with the following line:
-```ruby
-tracker = EventTracker::Tracker.new(doer_id, properties)
-```
-where `properties` is a hash, and then you can use it with:
-```ruby
-tracker.track('return.refunded.merchant', 'Merchant Refunded Return', extra_properties)
-```
-where `extra_properties` is a hash with extra information to be merged with the original `properties`.
+This will automatically register the included `Mixpanel` tracker.
 
 ### Adding a custom tracker
 Create a `Tracker` and corresponding `Job` in your project like so:
