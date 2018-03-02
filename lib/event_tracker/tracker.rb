@@ -1,18 +1,18 @@
 module EventTracker
   class Tracker
-    def initialize(doer_id, context)
+    def initialize(doer_id, context = {})
       @doer_id = doer_id
       @context = context
       @trackers = []
 
-      register_tracker EventTracker::Trackers::Development.new(@doer_id) if development?
-      register_tracker EventTracker::Trackers::Mixpanel.new(@doer_id) if mixpanel?
+      register_tracker EventTracker::Trackers::Development if development?
+      register_tracker EventTracker::Trackers::Mixpanel if mixpanel?
     end
 
     def register_tracker(tracker)
-      return false unless tracker.is_a? EventTracker::Trackers::Base
+      return false unless tracker.superclass == EventTracker::Trackers::Base
 
-      @trackers << tracker
+      @trackers << tracker.new(@doer_id)
       true
     end
 
