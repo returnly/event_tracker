@@ -72,6 +72,18 @@ module EventTracker
   end
 end
 ```
+
+And to register your new tracker in your project:
+
+```ruby
+def event_tracker
+  @event_tracker ||= begin
+    tracker = EventTracker::Tracker.new(current_user_id, session.to_hash)
+    tracker.register_tracker(EventTracker::Trackers::MyTracker)
+    tracker
+  end
+end
+```
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
