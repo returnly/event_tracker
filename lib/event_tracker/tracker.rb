@@ -16,8 +16,11 @@ module EventTracker
       true
     end
 
-    def track(event_name, event_label, properties = {})
-      @trackers.each { |tracker| tracker.track(event_name, event_label, context_with_(properties)) }
+    def track(event_name, event_label, properties = {}, options = {})
+      @trackers.each do |tracker| 
+        next if options[:except].include?(tracker.class.downcase)
+        tracker.track(event_name, event_label, context_with_(properties))
+      end
     end
 
     private
