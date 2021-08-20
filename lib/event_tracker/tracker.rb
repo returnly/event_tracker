@@ -18,7 +18,8 @@ module EventTracker
 
     def track(event_name, event_label, properties = {}, options = {})
       @trackers.each do |tracker| 
-        next if options[:except].include?(tracker.class.downcase)
+        next if options[:except].include?(tracker.type)
+)
         tracker.track(event_name, event_label, context_with_(properties))
       end
     end
