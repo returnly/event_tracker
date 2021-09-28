@@ -37,7 +37,17 @@ EventTracker.configure do |config|
 end
 ```
 
-This will automatically register the included `Mixpanel` tracker.
+Register your tracker
+
+```ruby
+def mixpanel_tracker
+  @mixpanel_tracker ||= begin
+    tracker = EventTracker::Trackers::Mixpanel.new(EventTracker.configuration.mixpanel_project_token)
+    tracker.register_tracker(EventTracker::Trackers::Mixpanel)
+    tracker
+  end
+end
+```
 
 ### Adding a custom tracker
 Create a `Tracker` and corresponding `Job` in your project like so:
