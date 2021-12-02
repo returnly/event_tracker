@@ -6,7 +6,6 @@ module EventTracker
       @trackers = []
 
       register_tracker EventTracker::Trackers::Development if development?
-      register_tracker EventTracker::Trackers::Mixpanel if mixpanel?
     end
 
     def register_tracker(tracker)
@@ -29,10 +28,6 @@ module EventTracker
 
     def development?
       Rails.env.development?
-    end
-
-    def mixpanel?
-      EventTracker.configuration.mixpanel_project_token.present?
     end
   end
 end
