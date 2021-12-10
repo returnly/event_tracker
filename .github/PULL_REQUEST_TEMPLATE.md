@@ -7,6 +7,9 @@
 
 <!-- If the code cannot be tested, provide a brief description of the reasons -->
 # Testing 🧪 
+# Client applications PR's 📎
+- :link: [Returns center](https://github.com/returnly/returns-center/pull/XXXX)
+- :link: [Dashboard](https://github.com/returnly/dashboard/pull/XXXX)
 
 ## Best Practices
 
