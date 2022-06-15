@@ -1,7 +1,21 @@
+GIT
+  remote: https://github.com/returnly/rubocop-returnly.git
+  revision: 76daf0abc6593e0e5dc37de012d88b765d53504f
+  branch: master
+  specs:
+    rubocop-returnly (0.22.0)
+      rubocop (~> 1.28.2)
+      rubocop-packaging (~> 0.5.1)
+      rubocop-performance (~> 1.13.3)
+      rubocop-rails (~> 2.14.2)
+      rubocop-rspec (~> 2.9.0)
+      rubocop-rubycw (~> 0.1.6)
+      rubocop-thread_safety (~> 0.4.4)
+
 PATH
   remote: .
   specs:
-    event_tracker (1.1.1)
+    event_tracker (1.2.0)
       activejob
       activerecord
       mixpanel-ruby (~> 2.2, >= 2.2.0)
@@ -23,15 +37,23 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    ast (2.4.2)
     concurrent-ruby (1.1.9)
     diff-lcs (1.4.4)
-    globalid (0.5.2)
+    globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     minitest (5.14.4)
     mixpanel-ruby (2.2.2)
+    parallel (1.22.1)
+    parser (3.1.2.0)
+      ast (~> 2.4.1)
+    rack (2.2.3.1)
+    rainbow (3.1.1)
     rake (10.5.0)
+    regexp_parser (2.5.0)
+    rexml (3.2.5)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -45,8 +67,36 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
+    rubocop (1.28.2)
+      parallel (~> 1.10)
+      parser (>= 3.1.0.0)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml
+      rubocop-ast (>= 1.17.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 3.0)
+    rubocop-ast (1.18.0)
+      parser (>= 3.1.1.0)
+    rubocop-packaging (0.5.1)
+      rubocop (>= 0.89, < 2.0)
+    rubocop-performance (1.13.3)
+      rubocop (>= 1.7.0, < 2.0)
+      rubocop-ast (>= 0.4.0)
+    rubocop-rails (2.14.2)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.7.0, < 2.0)
+    rubocop-rspec (2.9.0)
+      rubocop (~> 1.19)
+    rubocop-rubycw (0.1.6)
+      rubocop (~> 1.0)
+    rubocop-thread_safety (0.4.4)
+      rubocop (>= 0.53.0)
+    ruby-progressbar (1.11.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    unicode-display_width (2.1.0)
     zeitwerk (2.4.2)
 
 PLATFORMS
@@ -57,6 +107,7 @@ DEPENDENCIES
   event_tracker!
   rake (~> 10.0)
   rspec (~> 3.0)
+  rubocop-returnly (= 0.22.0)!
 
 BUNDLED WITH
    2.2.29
