@@ -4,6 +4,7 @@ steps:
       - "./bin/ci/rubocop"
     artifact_paths: "artifacts/*"
     plugins:
+      unbounce/aws-ssm#v1.0.0:
       docker-compose:
         config: "docker-compose.tests.yml"
         run: "app"
