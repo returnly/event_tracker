@@ -8,6 +8,8 @@ steps:
       docker-compose:
         config: "docker-compose.tests.yml"
         run: "app"
+    soft_fail:
+      - exit_status: 1
     agents:
       queue: "ruby-tests"
 
