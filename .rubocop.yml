@@ -1,0 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
+# Visit https://github.com/returnly/rubocop-returnly for current configuration and upgrade steps
+inherit_gem:
+  rubocop-returnly: .rubocop-returnly.yml
