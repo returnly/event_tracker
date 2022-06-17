@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module EventTracker
   module Trackers
     class Mixpanel < Base
