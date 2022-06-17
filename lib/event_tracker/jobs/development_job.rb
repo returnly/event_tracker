@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'rails'
 require_relative 'tracker_job'
 
 module EventTracker
