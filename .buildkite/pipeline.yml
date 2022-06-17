@@ -13,6 +13,7 @@ steps:
   - label: "RSpec"
     artifact_paths: "artifacts/*"
     plugins:
+      unbounce/aws-ssm#v1.0.0:
       docker-compose#v3.0.2:
         config: "docker-compose.tests.yml"
         propagate-environment: true
