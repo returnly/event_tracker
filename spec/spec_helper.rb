@@ -1,4 +1,4 @@
-require 'bundler/setup'
+# frozen_string_literal: true
 require 'event_tracker'
 require 'rspec-sidekiq'
 

@@ -1,4 +1,6 @@
+# frozen_string_literal: true
 require 'rails'
+
 module EventTracker
   class Tracker
     def initialize(doer_id, context = {})
@@ -23,8 +25,8 @@ module EventTracker
     private
 
     def context_with_(properties)
-      @context.merge(properties)
-              .merge(client_event_unix_timestamp: Time.now.to_i)
+      @context.merge(properties).
+        merge(client_event_unix_timestamp: Time.now.to_i)
     end
 
     def development?
