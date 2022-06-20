@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.version       = EventTracker::VERSION
   spec.authors       = ['Richard Millan']
   spec.email         = ['richard@returnly.com']
-
+  spec.required_ruby_version = '>= 2.7.6'
   spec.summary       = 'Gem for sharing event-tracking functionality between Rails apps'
   spec.homepage      = 'https://github.com/returnly/event_tracker'
 
@@ -22,9 +22,7 @@ Gem::Specification.new do |spec|
       'public gem pushes.'
   end
 
-  spec.files = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(test|spec|features)/})
-  end
+  spec.files         = Dir.glob('lib/**/*')
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
