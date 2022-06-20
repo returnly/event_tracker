@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'event_tracker'
 require 'rspec-sidekiq'
 
@@ -13,7 +14,7 @@ RSpec::Sidekiq.configure do |config|
   config.warn_when_jobs_not_processed_by_sidekiq = true # default => true
 end
 
-Rails.logger = Logger.new(STDOUT)
+Rails.logger = Logger.new($stdout)
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
