@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require 'active_job'
+require 'sidekiq'
 
 module EventTracker
   module Jobs

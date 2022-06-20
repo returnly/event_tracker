@@ -13,6 +13,8 @@ RSpec::Sidekiq.configure do |config|
   config.warn_when_jobs_not_processed_by_sidekiq = true # default => true
 end
 
+Rails.logger = Logger.new(STDOUT)
+
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = '.rspec_status'
