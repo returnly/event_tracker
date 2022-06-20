@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module EventTracker
   require 'event_tracker/version'
   require 'event_tracker/configuration'

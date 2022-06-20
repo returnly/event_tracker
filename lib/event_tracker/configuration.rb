@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module EventTracker
   class Configuration
     attr_accessor :mixpanel_project_token
