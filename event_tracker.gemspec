@@ -7,8 +7,8 @@ require 'event_tracker/version'
 Gem::Specification.new do |spec|
   spec.name          = 'event_tracker'
   spec.version       = EventTracker::VERSION
-  spec.authors       = ['tom']
-  spec.email         = ['tom@returnly.com']
+  spec.authors       = ['Richard Millan']
+  spec.email         = ['richard@returnly.com']
 
   spec.summary       = 'Gem for sharing event-tracking functionality between Rails apps'
   spec.homepage      = 'https://github.com/returnly/event_tracker'
