@@ -30,10 +30,11 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'bundler', '~> 2.2.29'
-  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rake', '~> 12.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
 
   spec.add_dependency 'activejob'
   spec.add_dependency 'activerecord'
   spec.add_dependency 'mixpanel-ruby', '~> 2.2', '>= 2.2.0'
+  spec.add_dependency 'rails', '~> 6.1.6'
 end

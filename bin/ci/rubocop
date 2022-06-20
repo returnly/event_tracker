@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Intended to be used at CI only (.buildkite/pipeline.yml file)
+# It requests the right formatting so we can properly annotate builds with failure details (if any)
+bundle exec rubocop --parallel \
+  --format progress --format emacs --out artifacts/rubocop.tabs \
+  --display-only-fail-level-offenses # ignore Information level offenses

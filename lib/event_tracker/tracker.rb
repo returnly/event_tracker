@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'rails'
+
 module EventTracker
   class Tracker
     def initialize(doer_id, context = {})
