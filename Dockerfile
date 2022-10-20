@@ -14,7 +14,7 @@ RUN apt-get -q update && \
 COPY . .
 
 ARG BUNDLE_GITHUB__COM
-ENV BUNDLER_VERSION=2.1.4
+ENV BUNDLER_VERSION=2.2.29
 RUN gem update --system \
     && gem install bundler -v $BUNDLER_VERSION \
     && bundle install -j 4

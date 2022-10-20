@@ -31,7 +31,7 @@ module EventTracker
     end
 
     def development?
-      Rails.env.development?
+      ::Rails.env.development?
     end
   end
 end

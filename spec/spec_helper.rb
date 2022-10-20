@@ -1,7 +1,20 @@
 # frozen_string_literal: true
 
-require 'active_job'
 require 'event_tracker'
+require 'rspec-sidekiq'
+
+RSpec::Sidekiq.configure do |config|
+  # Clears all job queues before each example
+  config.clear_all_enqueued_jobs = true # default => true
+
+  # Whether to use terminal colours when outputting messages
+  config.enable_terminal_colours = true # default => true
+
+  # Warn when jobs are not enqueued to Redis but to a job array
+  config.warn_when_jobs_not_processed_by_sidekiq = true # default => true
+end
+
+Rails.logger = Logger.new($stdout)
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -12,6 +25,6 @@ RSpec.configure do |config|
   end
 
   config.before(:all) do
-    ActiveJob::Base.queue_adapter = :test
+    Sidekiq::Testing.inline!
   end
 end

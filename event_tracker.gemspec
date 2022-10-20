@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.version       = EventTracker::VERSION
   spec.authors       = ['Richard Millan']
   spec.email         = ['richard@returnly.com']
-
+  spec.required_ruby_version = '>= 2.7.6'
   spec.summary       = 'Gem for sharing event-tracking functionality between Rails apps'
   spec.homepage      = 'https://github.com/returnly/event_tracker'
 
@@ -22,9 +22,7 @@ Gem::Specification.new do |spec|
       'public gem pushes.'
   end
 
-  spec.files = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(test|spec|features)/})
-  end
+  spec.files         = Dir.glob('lib/**/*')
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
@@ -33,8 +31,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 12.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
 
-  spec.add_dependency 'activejob'
   spec.add_dependency 'activerecord'
   spec.add_dependency 'mixpanel-ruby', '~> 2.2', '>= 2.2.0'
   spec.add_dependency 'rails', '~> 6.1.6'
+  spec.add_dependency 'rspec-sidekiq'
+  spec.add_dependency 'sidekiq', '~> 6.4', '>= 6.4.1'
 end
